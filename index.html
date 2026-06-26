@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiri's Portfolio</title>
+
+  <!-- ─── Primary Meta ─── -->
+  <meta name="title" content="Kiri's Portfolio">
+  <meta name="description"
+    content="pixel art · ms paint · commissions open ✦ — icons from $8, busts from $15, full illustrations from $28. DM me anytime!">
+  <meta name="author" content="Kiri">
+  <meta name="theme-color" content="#FFE234">
+
+  <!-- ─── Open Graph ─── -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kirisoft.carrd.co/">
+  <meta property="og:title" content="Kiri's Portfolio">
+  <meta property="og:description"
+    content="pixel art · ms paint · commissions open ✦ — icons from $8, busts from $15, full illustrations from $28. DM me anytime!">
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/kiri-soft/portfolio/refs/heads/main/Images/socials/preview.png">
+  <meta property="og:image:alt" content="Kiri's Portfolio preview — pixel art and ms paint illustrations">
+  <meta property="og:site_name" content="Kiri's Portfolio">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ─── Twitter / X Card ─── -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kiri's Portfolio">
+  <meta name="twitter:description"
+    content="pixel art · ms paint · commissions open ✦ — icons from $8, busts from $15, full illustrations from $28. DM me anytime!">
+  <meta name="twitter:image"
+    content="https://raw.githubusercontent.com/kiri-soft/portfolio/refs/heads/main/Images/socials/preview.png">
+  <meta name="twitter:image:alt" content="Kiri's Portfolio preview — pixel art and ms paint illustrations">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    @font-face {
+      font-family: 'MiniWakuwaku';
+      src: url('font/mini-wakuwaku.otf') format('opentype');
+    }
+
+    @font-face {
+      font-family: 'MiniWakukuMaru';
+      src: url('font/mini-wakuwaku-maru.otf') format('opentype');
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --y: #FFE234;
+      --y2: #FFD100;
+      --ink: #3d2817;
+      --soft: #fff8ee;
+    }
+    /* body */
+    body {
+      background: var(--y);
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      cursor: url('cursor/hand_open.png') 12 0, auto;
+    }
+
+    * {
+      cursor: url('cursor/hand_open.png') 12 0, auto;
+    }
+
+    a {
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+    }
+
+    a:hover {
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+    }
+
+    button {
+      cursor: url('cursor/hand_point.png') 12 0, pointer;
+    }
+
+    button:active {
+      cursor: url('cursor/hand_closed.png') 12 0, grabbing;
+    }
+
+    [onclick] {
+      cursor: url('cursor/hand_point.png') 12 0, pointer;
+    }
+
+    [onclick]:active {
+      cursor: url('cursor/hand_closed.png') 12 0, grabbing;
+    }
+
+    /* ─── Glitter ─── */
+    .glitter {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.5rem;
+      animation: glitterFall 1.5s ease-out forwards;
+    }
+
+    @keyframes glitterFall {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1)
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0)
+      }
+    }
+
+    .card {
+      scroll-margin-top: 30px;
+    }
+
+    /* ─── Cassette Player ─── */
+    .cassette-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 998;
+      width: 132px;
+      height: 84px;
+      border-radius: 18px;
+      background: white;
+      border: 3px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      cursor: url('cursor/hand_point.png') 12 0, pointer;
+      overflow: hidden;
+      transition: transform .15s, box-shadow .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+    }
+
+    .cassette-btn:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .cassette-btn:active {
+      transform: translate(1px, 1px);
+    }
+
+    .cassette-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ─── Music note pop ─── */
+    .music-note {
+      position: fixed;
+      pointer-events: none;
+      font-size: 1.3rem;
+      animation: noteFly 1.2s ease-out forwards;
+    }
+
+    @keyframes noteFly {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(var(--nx), var(--ny)) scale(0.4) rotate(var(--nr));
+      }
+    }
+
+    /* ─── Now playing pill ─── */
+    .now-playing {
+      position: fixed;
+      top: 20px;
+      right: 150px;
+      z-index: 999;
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 99px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 var(--ink);
+      opacity: 0;
+      transform: translateX(12px) scale(0.95);
+      transform-origin: right center;
+      transition: opacity .25s, transform .25s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .now-playing.visible {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+
+    .now-playing .np-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 16px;
+    }
+
+    .now-playing .np-bars span {
+      display: block;
+      width: 3px;
+      background: #ff6b8a;
+      border-radius: 2px;
+      animation: barBounce 0.6s ease-in-out infinite alternate;
+    }
+
+    .now-playing .np-bars span:nth-child(1) {
+      height: 6px;
+      animation-delay: 0s;
+    }
+
+    .now-playing .np-bars span:nth-child(2) {
+      height: 14px;
+      animation-delay: .1s;
+    }
+
+    .now-playing .np-bars span:nth-child(3) {
+      height: 9px;
+      animation-delay: .2s;
+    }
+
+    .now-playing .np-bars span:nth-child(4) {
+      height: 14px;
+      animation-delay: .05s;
+    }
+
+    .now-playing .np-bars span:nth-child(5) {
+      height: 6px;
+      animation-delay: .15s;
+    }
+
+    @keyframes barBounce {
+      from {
+        transform: scaleY(0.3);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .now-playing .np-bars.paused span {
+      animation-play-state: paused;
+    }
+
+    .now-playing .np-text {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: .8rem;
+      color: var(--ink);
+    }
+
+    .volume-control {
+      position: fixed;
+      top: 115px;
+      right: 20px;
+      z-index: 999;
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 99px;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 var(--ink);
+
+      /* hidden until music plays */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all .25s ease;
+    }
+
+    .volume-control.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .volume-control i {
+      color: var(--ink);
+      font-size: 0.9rem;
+    }
+
+    .volume-control input[type="range"] {
+      width: 90px;
+      accent-color: #ff6b8a;
+    }
+
+    .volume-control input[type="range"]:hover {
+      cursor: url('cursor/hand_point.png') 12 0, pointer;
+    }
+
+    /* Hide cassette + volume on mobile */
+    @media (max-width: 768px) {
+
+      .cassette-btn {
+        display: none !important;
+      }
+
+      .volume-control {
+        display: none !important;
+      }
+
+      .now-playing {
+        right: 20px;
+        top: 20px;
+      }
+    }
+
+    /* ─── Email FAB + tooltip ─── */
+    .email-wrap {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .email-tooltip {
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 99px;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+      transform-origin: bottom right;
+      transition: opacity .2s, transform .2s;
+      white-space: nowrap;
+      box-shadow: 3px 3px 0 var(--ink);
+      position: relative;
+    }
+
+    .email-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      right: 28px;
+      border: 8px solid transparent;
+      border-top-color: var(--ink);
+    }
+
+    .email-tooltip::before {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      right: 29px;
+      border: 7px solid transparent;
+      border-top-color: white;
+      z-index: 1;
+    }
+
+    .email-tooltip .tt-label {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: .8rem;
+      color: #9a8060;
+      letter-spacing: .3px;
+    }
+
+    .email-tooltip .tt-addr {
+      font-family: 'Nunito', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .email-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--y);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+      transition: transform .2s, background .2s;
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+      flex-shrink: 0;
+    }
+
+    .email-btn:hover {
+      transform: scale(1.1);
+      background: #ff6b8a;
+      color: white;
+    }
+
+    .email-wrap:hover .email-tooltip {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* ─── Responsive page ─── */
+    @media(max-width:767px) {
+      .page {
+        width: 100vw;
+        max-width: 100%;
+      }
+    }
+
+    @media(min-width:768px) {
+      .page {
+        width: 100vw;
+        max-width: 1000px;
+      }
+    }
+
+    @media(min-width:1024px) {
+      .page {
+        width: 100vw;
+        max-width: 1200px;
+      }
+    }
+
+    @media(min-width:1440px) {
+      .page {
+        width: 100vw;
+        max-width: 1400px;
+      }
+    }
+
+    /* ─── Keyframes ─── */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(12px)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0)
+      }
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.55
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      100% {
+        transform: rotate(-2deg)
+      }
+
+      50% {
+        transform: rotate(2deg)
+      }
+    }
+
+    @keyframes squish {
+      0% {
+        transform: scale(1);
+      }
+
+      20% {
+        transform: scale(1.3, 0.6);
+      }
+
+      40% {
+        transform: scale(0.9, 1.15);
+      }
+
+      60% {
+        transform: scale(1.05, 0.95);
+      }
+
+      80% {
+        transform: scale(0.98, 1.02);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .squishing {
+      animation: squish 0.4s ease-out;
+    }
+
+    /* ─── Layout ─── */
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 12px 48px;
+      transition: max-width .3s ease;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 36px 16px 0;
+      animation: slideUp .6s ease both;
+    }
+
+    .logo-wrap {
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .site-name {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: 2.2rem;
+      color: var(--ink);
+      letter-spacing: .5px;
+      margin-top: 10px;
+      line-height: 1.1;
+    }
+
+    .site-name .accent {
+      color: #ff6b8a;
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: #6b5e4a;
+      margin-top: 5px;
+      letter-spacing: .3px;
+    }
+
+    .stars-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 12px 0 20px;
+      font-size: 1rem;
+      animation: shimmer 2.5s ease-in-out infinite;
+    }
+
+    .spin-star {
+      display: inline-block;
+      animation: spin 6s linear infinite;
+    }
+
+    .pill-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 16px 24px;
+    }
+
+    .pill-nav a {
+      text-decoration: none;
+      background: white;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 99px;
+      transition: transform .15s, background .15s;
+      font-family: 'MiniWakukuMaru', cursive;
+      letter-spacing: .3px;
+    }
+
+    .pill-nav a:hover {
+      background: var(--ink);
+      color: var(--y);
+      transform: scale(1.06);
+    }
+
+    @media(max-width:480px) {
+      .pill-nav {
+        gap: 6px;
+        padding: 0 8px 24px;
+      }
+
+      .pill-nav a {
+        font-size: .7rem;
+        padding: 6px 12px;
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      margin: 0 12px 16px;
+      padding: 24px 18px;
+      animation: popIn .5s ease both;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: .05s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: .15s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: .2s;
+    }
+
+    .card:nth-child(5) {
+      animation-delay: .25s;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+
+    .sec-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--y);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .sec-title {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(1000px, 1fr));
+      gap: 14px;
+      grid-auto-rows: auto;
+    }
+
+    .g-slot.wide {
+      grid-column: span 2;
+    }
+
+    .g-slot.tall {
+      grid-row: span 2;
+    }
+
+    @media(min-width:768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 14px;
+      }
+    }
+
+    @media(min-width:1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+      }
+    }
+
+    .g-slot {
+      border-radius: 18px;
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s;
+    }
+
+    .g-slot:hover {
+      transform: scale(1.04);
+    }
+
+    /* NEW */
+    .g-slot img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      /* ← was cover, now shows full image */
+      border-radius: 18px;
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+      display: block;
+      background: #f5f0e8;
+      /* soft fill behind transparent/tall images */
+    }
+
+    .g-slot img:hover {
+      opacity: 0.85;
+    }
+
+    .img-caption {
+      font-size: 1rem;
+      color: #6b5e4a;
+      text-align: center;
+      margin-top: 8px;
+      font-weight: 600;
+      font-family: 'MiniWakukuMaru', cursive;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      animation: fadeIn .2s ease;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: var(--soft);
+      margin: auto;
+      padding: 0;
+      width: 90%;
+      height: 90%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 95vw;
+      max-height: 95vh;
+    }
+
+    .modal-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--ink);
+      color: var(--y);
+      border: none;
+      font-size: 1.8rem;
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s;
+      font-weight: bold;
+    }
+
+    .close-modal:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .tabs-wrapper {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #ffe8f0;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: 1.1rem;
+      color: #b0a090;
+      padding: 10px 14px;
+      cursor: url('cursor/hand_point_link .png') 12 0, pointer;
+      position: relative;
+      transition: color .2s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .tab-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--y2);
+    }
+
+    .tab-btn:hover {
+      color: var(--ink);
+    }
+
+    @media(max-width:480px) {
+      .tabs-wrapper {
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .tab-btn {
+        font-size: .85rem;
+        padding: 8px 10px;
+      }
+    }
+
+    .about-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .avi {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--y);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      animation: wiggle 3s ease-in-out infinite;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+
+    .about-text strong {
+      color: var(--ink);
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .n-item {
+      background: #fffbe6;
+      border-radius: 14px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--y2);
+    }
+
+    .n-date {
+      font-size: .85rem;
+      color: #9a8060;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .n-text {
+      font-size: 1rem;
+      color: #3a2e20;
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    .comm-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .c-item {
+      background: #fffdf8;
+      border-radius: 18px;
+      padding: 16px 12px;
+      text-align: center;
+      transition: transform .15s;
+    }
+
+    .c-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .c-item .ci {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .c-item .ctype {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: 1.2rem;
+      color: var(--ink);
+    }
+
+    .c-item .cprice {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff6b8a;
+      margin: 4px 0;
+    }
+
+    .c-item .cdesc {
+      font-size: .9rem;
+      color: #7a6a5a;
+      line-height: 1.4;
+    }
+
+    .open-pill {
+      display: inline-block;
+      background: #e8fbe8;
+      color: #2a7a3a;
+      font-size: .67rem;
+      font-weight: 700;
+      border-radius: 99px;
+      padding: 3px 10px;
+      margin-top: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .ct-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: var(--ink);
+      color: var(--y);
+      text-decoration: none;
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: .95rem;
+      padding: 10px 6px;
+      border-radius: 12px;
+      letter-spacing: .2px;
+      transition: transform .15s, opacity .15s;
+      min-height: 48px;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .ct-btn:hover {
+      opacity: .82;
+      transform: scale(1.04);
+    }
+
+    .ct-btn .ci2 {
+      font-size: 1.2rem;
+    }
+
+    @media(max-width:480px) {
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .ct-btn {
+        font-size: .65rem;
+        padding: 8px 4px;
+        min-height: 40px;
+      }
+
+      .ct-btn .ci2 {
+        font-size: .95rem;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 14px 0 0;
+      font-size: .75rem;
+      color: #8a7a60;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+    }
+
+    .review-card {
+      background: #fffdf8;
+      border-radius: 18px;
+      padding: 16px;
+      border-left: 4px solid var(--y2);
+      transition: transform .15s;
+    }
+
+    .review-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--y);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .reviewer-info {
+      flex: 1;
+    }
+
+    .reviewer-name {
+      font-family: 'MiniWakukuMaru', cursive;
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .reviewer-title {
+      font-size: .9rem;
+      color: #9a8060;
+    }
+
+    .review-stars {
+      color: #ff6b8a;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin: 8px 0;
+    }
+
+    .review-text {
+      font-size: 1rem;
+      color: #3a2e20;
+      line-height: 1.5;
+    }
+
+    /* Theme toggle */
+    body {
+      transition: background .3s, color .3s
+    }
+
+    body.dark-theme {
+      --y: #2b1b10;
+      --y2: #ede2da;
+      --ink: #ffd84d;
+      --soft: #3a2416;
+    }
+
+    body.dark-theme .card,
+    body.dark-theme .cassette-btn,
+    body.dark-theme .now-playing,
+    body.dark-theme .volume-control,
+    body.dark-theme .email-tooltip,
+    body.dark-theme .pill-nav a {
+      background: var(--soft) !important;
+      color: var(--ink) !important;
+    }
+
+    .theme-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 3px solid var(--ink);
+      background: var(--soft);
+      color: var(--ink);
+      font-size: 1.4rem;
+      box-shadow: 3px 3px 0 var(--ink);
+      cursor: url()
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-btn" onclick="toggleTheme(); squish(this);" id="themeBtn">🌙</button>
+
+
+  <!-- ─── Cassette Player Button ─── -->
+  <div class="cassette-btn" id="cassetteBtn" onclick="toggleMusic()" title="Play / Pause music">
+    <img src="Images/cassette/cassette_static.png" id="cassetteImg" alt="cassette player">
+  </div>
+
+  <!-- ─── Now Playing Pill ─── -->
+  <div class="now-playing" id="nowPlaying">
+    <div class="np-bars" id="npBars">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <span class="np-text" id="npText">now playing ♪</span>
+  </div>
+
+  <!-- ─── Hidden Audio ─── -->
+  <audio id="bgMusic" loop>
+    <source src="sounds/Cozy_Game_Jam_Kiri.wav" type="audio/wav">
+    <!-- <source src="sounds/music.ogg" type="audio/ogg"> -->
+  </audio>
+
+  <!-- Volume Control -->
+  <div class="volume-control" id="volumeControl">
+    <i class="fas fa-volume-down"></i>
+    <input type="range" id="volumeSlider" min="0" max="100" value="20">
+    <i class="fas fa-volume-up"></i>
+  </div>
+
+  <div class="page">
+
+    <div class="hero">
+      <div class="logo-wrap">
+        <img src="Images/logo.png" height="128px" width="128px" id="frog" onclick="squish(this)">
+      </div>
+      <div class="site-name">Kiri<span class="accent">'s</span> Portfolio</div>
+      <div class="tagline">pixel art · ms paint · commissions open ✦</div>
+    </div>
+
+    <div class="stars-row">
+      <span class="spin-star">✦</span>
+      <span>·</span>
+      <span class="spin-star" style="animation-delay:-2s">✧</span>
+      <span>·</span>
+      <span class="spin-star" style="animation-delay:-4s">✦</span>
+    </div>
+
+    <nav class="pill-nav">
+      <a href="#gallery" onmouseenter="squish(this)">Gallery</a>
+      <a href="#about" onmouseenter="squish(this)">About</a>
+      <a href="#news" onmouseenter="squish(this)">News</a>
+      <a href="#reviews" onmouseenter="squish(this)">Reviews</a>
+      <a href="#commissions" onmouseenter="squish(this)">Commissions</a>
+      <a href="#contact" onmouseenter="squish(this)">Contact</a>
+    </nav>
+
+    <div class="card" id="gallery">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-palette"></i></div>
+        <div class="sec-title" onmouseenter="squish(this)">Gallery</div>
+      </div>
+      <div class="tabs-wrapper">
+        <button class="tab-btn active" onclick="switchTab('pixelart')"><i class="fas fa-gamepad"></i> Pixel Art</button>
+        <button class="tab-btn" onclick="switchTab('mspaint')"><i class="fas fa-paintbrush"></i> MS Paint</button>
+      </div>
+      <div class="gallery-grid" id="pixelart-tab"></div>
+      <div class="gallery-grid" id="mspaint-tab" style="display:none;"></div>
+    </div>
+
+    <div class="card" id="about">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-user"></i></div>
+        <div class="sec-title" onmouseenter="squish(this)">About me</div>
+      </div>
+      <div class="about-row">
+        <div class="avi"><i class="fas fa-star"></i></div>
+        <div class="about-text">
+          hi i'm <strong>Kiri</strong> !! i make pixel art and ms paint illustrations <i class="fas fa-frog"
+            style="color:#ff6b8a;"></i><br><br>
+          i love cozy characters, silly scenes & anything colourful!! commissions open — dm me anytime ˚₊✧
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="news">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-bullhorn"></i></div>
+        <div class="sec-title" onmouseenter="squish(this)">News</div>
+      </div>
+      <div class="news-list">
+        <div class="n-item">
+          <div class="n-date">June 2026</div>
+          <div class="n-text"><i class="fas fa-frog" style="color:#ff6b8a;" onmouseenter="squish(this)"></i> Commissions
+            are OPEN!! DM me to grab yours~</div>
+        </div>
+        <div class="n-item">
+          <div class="n-date">May 2026</div>
+          <div class="n-text"><i class="fas fa-frog" style="color:#ff6b8a;" onmouseenter="squish(this)"></i> New pixel
+            pieces added to the gallery!</div>
+        </div>
+        <div class="n-item">
+          <div class="n-date">April 2026</div>
+          <div class="n-text"><i class="fas fa-frog" style="color:#ff6b8a;" onmouseenter="squish(this)"></i> Portfolio
+            site launched — welcome!!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="reviews">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-star"></i></div>
+        <div class="sec-title" onmouseenter="squish(this)">Customer Reviews</div>
+      </div>
+      <div class="review-grid" id="reviewContainer"></div>
+    </div>
+
+    <div class="card" id="commissions">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-envelope"></i></div>
+        <div class="sec-title" onmouseenter="squish(this)">Commissions</div>
+      </div>
+      <div class="comm-grid">
+        <div class="c-item">
+          <div class="ci"><i class="fas fa-image"></i></div>
+          <div class="ctype">Icon , Sprite</div>
+          <div class="cprice">$2</div>
+          <div class="cdesc">Pixel / MS paint Icon, Avatar, Sprite</div>
+          <div class="open-pill"><i class="fas fa-frog" style="margin-right:4px;"></i> open</div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i class="fas fa-user-circle"></i></div>
+          <div class="ctype">Character Animations</div>
+          <div class="cprice">$15</div>
+          <div class="cdesc">Character + Basic Animations (Idle, Walk, Run ,Jump, Attack)</div>
+          <div class="open-pill"><i class="fas fa-frog" style="margin-right:4px;"></i> open</div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <div class="ctype">Full</div>
+          <div class="cprice">$28</div>
+          <div class="cdesc">Full illustration + full bg</div>
+          <div class="open-pill"><i class="fas fa-frog" style="margin-right:4px;"></i> open</div>
+        </div>
+        <div class="c-item">
+          <div class="ci"><i class="fas fa-gift"></i></div>
+          <div class="ctype">Custom</div>
+          <div class="cprice">ask!</div>
+          <div class="cdesc">Anything else — just dm</div>
+          <div class="open-pill"><i class="fas fa-frog" style="margin-right:4px;"></i> open</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="contact">
+      <div class="sec-head">
+        <div class="sec-icon"><i class="fas fa-comments"></i></div>
+        <div class="sec-title">Contact</div>
+      </div>
+      <div class="contact-grid">
+        <a class="ct-btn" href="https://www.instagram.com/kiriart/" target="_blank"><span class="ci2"><i
+              class="fab fa-instagram"></i></span> Instagram</a>
+        <a class="ct-btn" href="https://www.youtube.com/@KiriSoftGames" target="_blank"><span class="ci2"><i
+              class="fab fa-youtube"></i></span> YouTube</a>
+        <a class="ct-btn" href="https://kirisoft.carrd.co/" target="_blank"><span class="ci2"><i
+              class="fas fa-palette"></i></span> Commission</a>
+        <a class="ct-btn" href="https://kiri-soft.itch.io/" target="_blank"><span class="ci2"><i
+              class="fab fa-itch-io"></i></span> itch.io</a>
+        <a class="ct-btn" href="https://ko-fi.com/kirisoftgames" target="_blank"><span class="ci2"><i
+              class="fas fa-mug-hot"></i></span> Ko-fi</a>
+        <a class="ct-btn" href="https://www.patreon.com/gamedevkiri" target="_blank"><span class="ci2"><i
+              class="fab fa-patreon"></i></span> Patreon</a>
+        <a class="ct-btn" href="https://www.paypal.com/paypalme/amanverma0047" target="_blank"><span class="ci2"><i
+              class="fab fa-paypal"></i></span> PayPal</a>
+        <a class="ct-btn" href="https://discord.com/users/kirisavage" target="_blank"><span class="ci2"><i
+              class="fab fa-discord"></i></span> Discord</a>
+      </div>
+    </div>
+
+    <div class="footer">© 2025 Kiri's Portfolio <i class="fas fa-frog" style="color:#ff6b8a;"></i> all art by me !!
+    </div>
+  </div>
+
+  <!-- ─── Email FAB ─── -->
+  <div class="email-wrap" onmouseenter="squish(this)">
+    <div class="email-tooltip">
+      <span class="tt-label">send me a mail ✦</span>
+      <span class="tt-addr">kirisoftgames@gmail.com</span>
+    </div>
+    <a class="email-btn" href="mailto:Kirisoftgames@gmail.com?subject=Commission%20Inquiry" title="Send me an email!">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <!-- ─── Image Modal ─── -->
+  <div id="imageModal" class="modal" onclick="if(event.target.id==='imageModal')closeModal()">
+    <div class="modal-content">
+      <img class="modal-img" id="modalImage" src="" alt="Enlarged Image">
+      <button class="close-modal" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <script>
+    /* ─── Cassette player ─── */
+    const audio = document.getElementById('bgMusic');
+    const cassetteImg = document.getElementById('cassetteImg');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const npBars = document.getElementById('npBars');
+    let isPlaying = false;
+    const volumeSlider = document.getElementById('volumeSlider');
+    const volumeControl = document.getElementById('volumeControl');
+
+
+
+
+
+    volumeSlider.addEventListener('input', () => {
+      const volume = volumeSlider.value / 100;
+
+      audio.volume = volume;
+    });
+
+
+    function toggleMusic() {
+      const btn = document.getElementById('cassetteBtn');
+      squish(btn);
+
+      if (isPlaying) {
+
+        audio.pause();
+
+        cassetteImg.src =
+          'Images/cassette/cassette_static.png';
+
+        nowPlaying.classList.remove('visible');
+        volumeControl.classList.remove('visible');
+
+        npBars.classList.add('paused');
+
+        isPlaying = false;
+
+      } else {
+
+        audio.play().catch(() => { });
+
+        cassetteImg.src =
+          'Images/cassette/cassette_playing.gif';
+
+        nowPlaying.classList.add('visible');
+        volumeControl.classList.add('visible');
+
+        npBars.classList.remove('paused');
+
+        isPlaying = true;
+
+        spawnNotes();
+      }
+    }
+    document.querySelectorAll('.pill-nav a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    /* spawn a burst of music notes when pressing play */
+    function spawnNotes() {
+      const notes = ['♪', '♫', '♩', '🎵', '🎶'];
+      const btn = document.getElementById('cassetteBtn');
+      const rect = btn.getBoundingClientRect();
+      for (let i = 0; i < 6; i++) {
+        setTimeout(() => {
+          const n = document.createElement('div');
+          n.className = 'music-note';
+          n.textContent = notes[Math.floor(Math.random() * notes.length)];
+          const angle = (Math.random() * 160 + 180) * (Math.PI / 180);
+          const dist = Math.random() * 70 + 30;
+          n.style.setProperty('--nx', Math.cos(angle) * dist + 'px');
+          n.style.setProperty('--ny', Math.sin(angle) * dist + 'px');
+          n.style.setProperty('--nr', (Math.random() * 60 - 30) + 'deg');
+          n.style.left = (rect.left + rect.width / 2) + 'px';
+          n.style.top = (rect.top + rect.height / 2) + 'px';
+          document.body.appendChild(n);
+          setTimeout(() => n.remove(), 1200);
+        }, i * 80);
+      }
+    }
+
+    /* ─── Squish ─── */
+    const squishSfx = new Audio('sounds/bubble pop.mp3');
+
+    function squish(obj) {
+      squishSfx.currentTime = 0;
+      squishSfx.play().catch(() => { });
+      obj.classList.remove('squishing');
+      void obj.offsetWidth;
+      obj.classList.add('squishing');
+    }
+
+    /* ─── Gallery + Reviews ─── */
+    let galleriesData = { pixelart: [], mspaint: [] };
+
+    const reviewsData = [
+      { name: 'Sarah M.', title: 'Digital Artist', stars: 5, text: 'Kiri\'s pixel art is absolutely stunning! The attention to detail is incredible and the commission process was so smooth. Highly recommend!' },
+      { name: 'Alex J.', title: 'Game Developer', stars: 5, text: 'Amazing work on the game assets! The pixel art tileset I commissioned perfectly fits my indie game project. Will definitely order again!' },
+      { name: 'Jordan L.', title: 'Content Creator', stars: 5, text: 'The character design Kiri created for me was perfect! They really understood my vision and brought it to life beautifully.' },
+      { name: 'Taylor K.', title: 'Streamer', stars: 4, text: 'Great quality illustrations and very responsive. The MS Paint pieces have a unique charm that really stands out. Worth every penny!' },
+      { name: 'Casey P.', title: 'Art Enthusiast', stars: 5, text: 'I\'ve been following Kiri\'s work for a while and finally commissioned a piece. It exceeded all my expectations! Absolutely beautiful.' }
+    ];
+
+    async function initializeGalleries() {
+      try {
+        const response = await fetch('images.json');
+        galleriesData = await response.json();
+      } catch (err) {
+        console.warn('images.json not found.', err);
+      }
+      renderGallery('pixelart');
+      renderGallery('mspaint');
+      renderReviews();
+    }
+    /* NEW */
+    function renderGallery(type) {
+      const container = document.getElementById(type + '-tab');
+      container.innerHTML = '';
+      (galleriesData[type] || []).forEach(img => {
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'display:flex;flex-direction:column';
+        const slot = document.createElement('div');
+        slot.className = 'g-slot';
+        const imgEl = document.createElement('img');
+        imgEl.src = img.path; imgEl.alt = img.caption;
+        imgEl.onclick = () => openModal(img.path);
+
+        /* span wide/landscape images across 2 columns */
+        imgEl.onload = () => {
+          const ratio = imgEl.naturalWidth / imgEl.naturalHeight;
+          if (ratio >= 1.6) slot.classList.add('wide');      // landscape (e.g. 1920×1080)
+          else if (ratio <= 0.65) slot.classList.add('tall'); // portrait/square-ish
+        };
+
+        const caption = document.createElement('div');
+        caption.className = 'img-caption';
+        caption.textContent = img.caption;
+        slot.appendChild(imgEl);
+        wrapper.appendChild(slot);
+        wrapper.appendChild(caption);
+        container.appendChild(wrapper);
+      });
+    }
+
+    function renderReviews() {
+      const container = document.getElementById('reviewContainer');
+      container.innerHTML = '';
+      reviewsData.forEach(review => {
+        const card = document.createElement('div'); card.className = 'review-card';
+        const header = document.createElement('div'); header.className = 'review-header';
+        const avatar = document.createElement('div'); avatar.className = 'reviewer-avatar'; avatar.textContent = review.name.charAt(0);
+        const info = document.createElement('div'); info.className = 'reviewer-info';
+        const name = document.createElement('div'); name.className = 'reviewer-name'; name.textContent = review.name;
+        const title = document.createElement('div'); title.className = 'reviewer-title'; title.textContent = review.title;
+        info.appendChild(name); info.appendChild(title);
+        header.appendChild(avatar); header.appendChild(info);
+        const stars = document.createElement('div'); stars.className = 'review-stars'; stars.textContent = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+        const text = document.createElement('div'); text.className = 'review-text'; text.textContent = review.text;
+        card.appendChild(header); card.appendChild(stars); card.appendChild(text);
+        container.appendChild(card);
+      });
+    }
+
+    function switchTab(tabName) {
+      document.getElementById('mspaint-tab').style.display = 'none';
+      document.getElementById('pixelart-tab').style.display = 'none';
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabName + '-tab').style.display = 'grid';
+      event.target.classList.add('active');
+    }
+
+    function openModal(src) {
+      document.getElementById('modalImage').src = src;
+      document.getElementById('imageModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    document.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.8) {
+        const g = document.createElement('div');
+        g.className = 'glitter';
+        g.innerHTML = '<i class="fas fa-frog" style="color:#ff6b8a;"></i>';
+        const angle = Math.random() * Math.PI * 2;
+        const dist = Math.random() * 60 + 20;
+        g.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+        g.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+        g.style.left = e.clientX + 'px';
+        g.style.top = e.clientY + 'px';
+        document.body.appendChild(g);
+        setTimeout(() => g.remove(), 1500);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', initializeGalleries);
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      document.getElementById('themeBtn').textContent =
+        document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+    }
+
+  </script>
+</body>
+
+</html>

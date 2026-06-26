@@ -1,0 +1,22 @@
+{
+  "pixelart": [
+    {
+      "path": "PortfolioImg/pixelart/The Twins.png",
+      "caption": "The Twins"
+    }
+  ],
+  "mspaint": [
+    {
+      "path": "PortfolioImg/mspaint/art1.png",
+      "caption": "Art1"
+    },
+    {
+      "path": "PortfolioImg/mspaint/art2.png",
+      "caption": "Art2"
+    },
+    {
+      "path": "PortfolioImg/mspaint/art3.png",
+      "caption": "Art3"
+    }
+  ]
+}
