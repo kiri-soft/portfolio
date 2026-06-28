@@ -608,6 +608,19 @@
  }
 
  @media(max-width:480px) {
+    .about-row {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .about-text {
+         width: 100%;
+     }
+
+     .avi {
+         margin-bottom: 12px;
+     }
+
      .pill-nav {
          gap: 6px;
          padding: 0 8px 24px;
@@ -705,6 +718,19 @@
  }
 
  @media(max-width:480px) {
+    .about-row {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .about-text {
+         width: 100%;
+     }
+
+     .avi {
+         margin-bottom: 12px;
+     }
+
      .tabs-wrapper {
          gap: 6px;
          margin-bottom: 12px;
@@ -723,6 +749,19 @@
  }
 
  @media(max-width:480px) {
+    .about-row {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .about-text {
+         width: 100%;
+     }
+
+     .avi {
+         margin-bottom: 12px;
+     }
+
      .masonry-grid {
          columns: 2;
          column-gap: 8px;
@@ -730,6 +769,19 @@
  }
 
  @media(min-width:481px) and (max-width:768px) {
+    .about-row {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .about-text {
+         width: 100%;
+     }
+
+     .avi {
+         margin-bottom: 12px;
+     }
+
      .masonry-grid {
          columns: 3;
      }
@@ -937,6 +989,19 @@
  }
 
  @media(max-width:700px) {
+    .about-row {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .about-text {
+         width: 100%;
+     }
+
+     .avi {
+         margin-bottom: 12px;
+     }
+
      .modal-arrow.prev {
          left: 4px;
      }
