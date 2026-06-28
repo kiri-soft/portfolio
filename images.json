@@ -1,8 +1,60 @@
 {
   "pixelart": [
     {
+      "path": "PortfolioImg/pixelart/airplanes.png",
+      "caption": "Airplanes"
+    },
+    {
+      "path": "PortfolioImg/pixelart/Animal Characters.png",
+      "caption": "Animal Characters"
+    },
+    {
+      "path": "PortfolioImg/pixelart/cover art.png",
+      "caption": "Cover art"
+    },
+    {
+      "path": "PortfolioImg/pixelart/coverart.png",
+      "caption": "Coverart"
+    },
+    {
+      "path": "PortfolioImg/pixelart/cute girl character top down.gif",
+      "caption": "Cute girl character top down"
+    },
+    {
+      "path": "PortfolioImg/pixelart/dino stickers.png",
+      "caption": "Dino stickers"
+    },
+    {
+      "path": "PortfolioImg/pixelart/knights animations.gif",
+      "caption": "Knights animations"
+    },
+    {
+      "path": "PortfolioImg/pixelart/Krishna.gif",
+      "caption": "Krishna"
+    },
+    {
+      "path": "PortfolioImg/pixelart/moth stickers.png",
+      "caption": "Moth stickers"
+    },
+    {
+      "path": "PortfolioImg/pixelart/old style tilesets.png",
+      "caption": "Old style tilesets"
+    },
+    {
+      "path": "PortfolioImg/pixelart/plants.png",
+      "caption": "Plants"
+    },
+    {
+      "path": "PortfolioImg/pixelart/prices with size.png",
+      "caption": "Prices with size"
+    },
+    {
       "path": "PortfolioImg/pixelart/The Twins.png",
       "caption": "The Twins"
+    },
+    {
+      "path": "PortfolioImg/pixelart/Tilesets and Character.png",
+      "caption": "Tilesets and Character"
     }
   ],
   "mspaint": [
